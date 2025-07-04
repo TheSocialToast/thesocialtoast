@@ -49,7 +49,7 @@ const Footer = () => {
         <h3 className="footer-heading">Follow Us</h3>
         <div className="footer-icons">
           <a
-            href="https://www.linkedin.com/in/yourprofile"
+            href="https://www.linkedin.com/company/the-social-toast/"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-icon"
@@ -58,7 +58,7 @@ const Footer = () => {
             <FaLinkedin />
           </a>
           <a
-            href="https://www.instagram.com/yourprofile"
+            href="https://www.instagram.com/the.social.toast"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-icon"

@@ -1,7 +1,36 @@
+import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const { name, email, subject, message } = formData;
+    const mailtoLink = `mailto:thesocialtoast.org@gmail.com?subject=${encodeURIComponent(
+      subject || "Let's Talk Toast"
+    )}&body=${encodeURIComponent(
+      `Hi,\n\nMy name is ${name} (${email}).\n\n${message}\n\nLooking forward to hearing from you!\n\nRegards,\n${name}`
+    )}`;
+
+    window.location.href = mailtoLink;
+  };
+
   return (
     <>
       <style>{`
@@ -111,28 +140,56 @@ const ContactSection = () => {
           <Row className="justify-content-center">
             <Col xs={12} md={10} lg={8}>
               <div className="contact-form">
-                <Form>
+                <Form onSubmit={handleSubmit}>
                   <Row>
                     <Col md={6}>
                       <Form.Group className="mb-3">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Your Name" />
+                        <Form.Control
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Your Name"
+                          required
+                        />
                       </Form.Group>
                     </Col>
                     <Col md={6}>
                       <Form.Group className="mb-3">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="you@example.com" />
+                        <Form.Control
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="you@example.com"
+                          required
+                        />
                       </Form.Group>
                     </Col>
                   </Row>
                   <Form.Group className="mb-3">
                     <Form.Label>Subject</Form.Label>
-                    <Form.Control type="text" placeholder="Let us know how we can help" />
+                    <Form.Control
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Let us know how we can help"
+                    />
                   </Form.Group>
                   <Form.Group className="mb-4">
                     <Form.Label>Message</Form.Label>
-                    <Form.Control as="textarea" rows={5} placeholder="Your message here..." />
+                    <Form.Control
+                      as="textarea"
+                      name="message"
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Your message here..."
+                      required
+                    />
                   </Form.Group>
                   <div className="text-center">
                     <Button className="contact-btn" type="submit">
@@ -144,7 +201,7 @@ const ContactSection = () => {
                 {/* Social Icons */}
                 <div className="social-icons">
                   <a
-                    href="https://www.linkedin.com/in/yourprofile"
+                    href="https://www.linkedin.com/company/the-social-toast/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-icon"
@@ -153,7 +210,7 @@ const ContactSection = () => {
                     <FaLinkedin />
                   </a>
                   <a
-                    href="https://www.instagram.com/yourprofile"
+                    href="https://www.instagram.com/the.social.toast"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-icon"

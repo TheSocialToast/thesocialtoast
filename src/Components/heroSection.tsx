@@ -1,6 +1,6 @@
-import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import bannerImage from '../assets/Banner.png'; // Adjust path if needed
+import React from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import bannerImage from "../assets/Banner.png"; // Adjust path if needed
 
 const HeroSection: React.FC = () => {
   return (
@@ -115,8 +115,22 @@ const HeroSection: React.FC = () => {
                 Bite-sized marketing magic for bold businesses.
               </p>
               <div className="button-row">
-                <Button className="hero-btn">Get Started</Button>
-                <Button className="hero-btn dark">Learn More</Button>
+                <Button
+                  as="a"
+                  href="mailto:thesocialtoast.org@gmail.com?subject=Let's%20Get%20Toasting"
+                  className="hero-btn"
+                >
+                  Let’s Get Toasting 🍞
+                </Button>
+                <Button
+                  as="a"
+                  href="https://calendly.com/yourname/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-btn dark"
+                >
+                  Book a Jam Sesh
+                </Button>
               </div>
             </Col>
           </Row>
