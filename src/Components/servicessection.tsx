@@ -8,7 +8,6 @@ import {
   BiMailSend,
   BiBrain
 } from 'react-icons/bi';
-import SpiderChartSection from './Chart';
 
 const services = [
   {

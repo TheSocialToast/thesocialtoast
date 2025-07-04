@@ -1,5 +1,4 @@
 /** @jsxImportSource react */
-import React from "react";
 import {
   Radar,
   RadarChart,
