@@ -124,7 +124,7 @@ const HeroSection: React.FC = () => {
                 </Button>
                 <Button
                   as="a"
-                  href="https://calendly.com/yourname/30min"
+                  href="https://calendly.com/thesocialtoast-org"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hero-btn dark"
